@@ -5,10 +5,27 @@
 
  class SearchBar extends Component {
 
+     constructor(props) {
+         super(props);
+         this.state = { term: '' };
+     }
+
+     onInputChange = (event) => {
+        this.setState({ term: event.target.value });
+     }
+
      render() {
-         return <input />
+         return (
+             <div>
+                <input
+                    value={this.state.term}
+                    onChange={this.onInputChange.bind(this)}
+                />
+             </div>
+        );
      }
 
  }
 
+ // Controlled component - only ever changes when the STATE changes
  export default SearchBar;
