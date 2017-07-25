@@ -8,9 +8,11 @@ const videoList = (props) => {
 
     const videoListItems = props.videos.map((video) => {
         return (
-            <li className="list-group-item">
-                {video.title}
-            </li>
+            <VideoListItem
+                key={video.etag}
+                video={video}
+                onVideoSelect={ props.onVideoSelect }
+            />
         )
     });
 
